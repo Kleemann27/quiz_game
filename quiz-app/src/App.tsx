@@ -72,22 +72,27 @@ function App() {
       return "Väga tubli! Sul on teema hästi selge.";
     }
 
-    return "Hea algus! Proovi uuesti ja saad veel parema tulemuse.";
+    return "Hea algus! Proovi uuesti ja saad parema tulemuse.";
   };
 
   if (quizFinished) {
     return (
       <main className="app">
-        <div className="container">
-          <header className="header">
-            <p className="eyebrow">EESTI VIKTORIIN</p>
-            <h1>Tulemused</h1>
-            <p className="score" data-testid="final-score">
-              Lõppskoor: {score} / {questions.length}
-            </p>
-            <p className="message">{getPersonalMessage()}</p>
-          </header>
+        <div className="top-bar" />
+        <section className="hero">
+          <div className="container">
+            <header className="header">
+              <p className="eyebrow">EESTI VIKTORIIN</p>
+              <h1>Tulemused</h1>
+              <p className="score" data-testid="final-score">
+                Lõppskoor: {score} / {questions.length}
+              </p>
+              <p className="message">{getPersonalMessage()}</p>
+            </header>
+          </div>
+        </section>
 
+        <div className="container">
           <section className="results-section">
             <table className="results-table">
               <thead>
@@ -124,18 +129,23 @@ function App() {
 
   return (
     <main className="app">
-      <div className="container">
-        <header className="header">
-          <p className="eyebrow">EESTI VIKTORIIN</p>
-          <h1>Pane oma teadmised proovile</h1>
-          <p className="progress">
-            Küsimus {currentQuestionIndex + 1} / {questions.length}
-          </p>
-          <p className="score" data-testid="live-score">
-            Punktid: {score}
-          </p>
-        </header>
+      <div className="top-bar" />
+      <section className="hero">
+        <div className="container">
+          <header className="header">
+            <p className="eyebrow">EESTI VIKTORIIN</p>
+            <h1>Pane oma teadmised proovile</h1>
+            <p className="progress">
+              Küsimus {currentQuestionIndex + 1} / {questions.length}
+            </p>
+            <p className="score" data-testid="live-score">
+              Punktid: {score}
+            </p>
+          </header>
+        </div>
+      </section>
 
+      <div className="container">
         <section className="card">
           <h2 className="question">{currentQuestion.question}</h2>
 
@@ -143,11 +153,12 @@ function App() {
             {currentQuestion.options.map((option) => (
               <label
                 key={option.id}
-                className={`option ${
-                  selectedAnswerId === option.id ? "selected" : ""
+                className={`option ${selectedAnswerId === option.id ? "selected" : ""} ${
+                  showFeedback ? "disabled" : ""
                 }`}
               >
                 <input
+                  className="option-input"
                   type="radio"
                   name={`question-${currentQuestion.id}`}
                   value={option.id}
@@ -155,7 +166,8 @@ function App() {
                   onChange={() => setSelectedAnswerId(option.id)}
                   disabled={showFeedback}
                 />
-                <span>{option.text}</span>
+                <span className="option-box" aria-hidden="true" />
+                <span className="option-text">{option.text}</span>
               </label>
             ))}
           </div>
@@ -171,7 +183,9 @@ function App() {
           ) : (
             <>
               <div
-                className={`feedback ${latestAnswerCorrect ? "success" : "error"}`}
+                className={`feedback ${
+                  latestAnswerCorrect ? "success" : "error"
+                }`}
                 data-testid="feedback"
               >
                 {latestAnswerCorrect
