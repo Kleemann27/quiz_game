@@ -206,7 +206,7 @@ body{
   transition: 0.2s ease;
 }
 
-.primary-button:hover {
+.primary-button:not(:disabled):hover {
   background: var(--surface);
   color: var(--primary-dark);
   border: var(--primary-dark);
@@ -218,7 +218,7 @@ body{
   opacity: 0.5;
   cursor: not-allowed;
   background-color: var(--disable-bg);
-  color: var(--primary-grey);
+  color: var(--text);
 }
 
 .feedback {
