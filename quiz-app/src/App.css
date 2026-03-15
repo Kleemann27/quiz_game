@@ -55,42 +55,36 @@ body{
   inset: 0;
   background-image: url("/ES_pattern_black.svg");
   background-repeat: repeat;
-  background-size: 85px;
+  background-size: 50px;
   background-position: left top;
   opacity: 1;
   pointer-events: none;
-}
-
-.hero > .container {
-  position: relative;
-  z-index: 2;
-  max-width: 1400px;
-
 }
 
 .hero__layout {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: 220px minmax(0, 1fr);
+  grid-template-columns: 140px minmax(0, 1fr);
   align-items: start;
-  gap: 24px;
+  gap: 48px;
+  max-width: 1600px;
 }
 
 .hero__brand {
   background: var(--surface);
-  padding: 12px 12px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  min-height: 96px;
+  min-height: 56px;
 }
 
 .hero__logo {
   display: block;
   max-width: 100%;
   height: auto;
-  width: 180px;
+  width: 108px;
+  padding-left: 2px;
 }
 
 .header {
