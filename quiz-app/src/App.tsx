@@ -80,15 +80,18 @@ function App() {
       <main className="app">
         <div className="top-bar" />
         <section className="hero">
-          <div className="container">
-            <header className="header">
-              <p className="eyebrow">EESTI VIKTORIIN</p>
-              <h1>Tulemused</h1>
-              <p className="score" data-testid="final-score">
-                Lõppskoor: {score} / {questions.length}
-              </p>
-              <p className="message">{getPersonalMessage()}</p>
-            </header>
+          <div className="container hero__layout">
+            <div className="hero__brand">
+            <img src="/ES_Logo.png" alt="Eesti Statistika" className="hero__logo" />
+            </div>
+              <header className="header">
+                <p className="eyebrow">EESTI VIKTORIIN</p>
+                <h1>Tulemused</h1>
+                <p className="score" data-testid="final-score">
+                  Lõppskoor: {score} / {questions.length}
+                </p>
+                <p className="message">{getPersonalMessage()}</p>
+              </header>
           </div>
         </section>
 
@@ -131,18 +134,21 @@ function App() {
     <main className="app">
       <div className="top-bar" />
       <section className="hero">
-        <div className="container">
-          <header className="header">
-            <p className="eyebrow">EESTI VIKTORIIN</p>
-            <h1>Pane oma teadmised proovile</h1>
-            <p className="progress">
-              Küsimus {currentQuestionIndex + 1} / {questions.length}
-            </p>
-            <p className="score" data-testid="live-score">
-              Punktid: {score}
-            </p>
-          </header>
-        </div>
+          <div className="container hero__layout">
+            <div className="hero__brand">
+            <img src="/ES_Logo.png" alt="Eesti Statistika" className="hero__logo" />
+            </div>
+              <header className="header">
+              <p className="eyebrow">EESTI VIKTORIIN</p>
+              <h1>Pane oma teadmised proovile</h1>
+              <p className="progress">
+                Küsimus {currentQuestionIndex + 1} / {questions.length}
+              </p>
+              <p className="score" data-testid="live-score">
+                Punktid: {score}
+              </p>
+            </header>
+          </div>
       </section>
 
       <div className="container">
