@@ -1,15 +1,19 @@
 :root {
   --bg: #F8F8F8;
+  --bg-grey: #F8F8F8;
   --surface: #ffffff;
   --primary: #0b5cab;
   --primary-dark: #000000;
-  --text: #1d2733;
+  --primary-grey: #565656; 
+  --text: #000000;
   --muted: #EFE9FB;
   --success: #4DC14D;
   --success-bg: #eaf7ee;
   --error: #DC1919;
   --error-bg: #fdecec;
   --border: #DDDDDD;
+  --disabled-text: #565656;
+  --disable-bg: #DDD;
   --shadow: 0 10px 30px rgba(11, 92, 171, 0.08);
 }
 
@@ -18,22 +22,24 @@
 }
 
 
-body {
+body{
   margin: 0;
-  font-family: Inter, Arial, sans-serif;
-  background: var(--bg);
+  font-family: "Roboto", sans-serif;
+  background: var(--surface);
   color: var(--text);
 }
 
 .app {
+  margin: 0;
   min-height: 100vh;
-  padding: 40px 16px;
+  padding: 0;
 }
 
 
 .container {
   max-width: 760px;
   margin: 0 auto;
+  padding: 0 16px;
 }
 
 .hero {
@@ -41,31 +47,59 @@ body {
   width: 100%;
   overflow: hidden;
   padding: 40px 0 32px;
-  background-color: var(--bg);
 }
 
 .hero::before {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url("../public/pattern.svg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center top;
+  background-image: url("/ES_pattern_black.svg");
+  background-repeat: repeat;
+  background-size: 85px;
+  background-position: left top;
   opacity: 1;
   pointer-events: none;
 }
 
 .hero > .container {
   position: relative;
+  z-index: 2;
+  max-width: 1400px;
+
+}
+
+.hero__layout {
+  position: relative;
   z-index: 1;
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  align-items: start;
+  gap: 24px;
+}
+
+.hero__brand {
+  background: var(--surface);
+  padding: 12px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 96px;
+}
+
+.hero__logo {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  width: 180px;
 }
 
 .header {
   display: inline-block;
-  padding: 20px 24px;
-  background: var(--bg);
+  padding: 16px 16px;
+  background: var(--surface);
   border-radius: 0;
+  min-width: 0;
+  justify-self: start; 
 }
 
 
@@ -86,14 +120,13 @@ body {
 .score,
 .message {
   margin: 6px 0;
-  color: #162659;
+  color: var(--primary);
   font-size: 1.2rem;
   font-weight: 700;
 }
 
 .card,
 .results-section {
-  background: var(--bg);
   padding: 24px;
 }
 
@@ -117,20 +150,16 @@ body {
   padding: 16px;
   border: 1px solid var(--border);
   border-radius: 0;
-  background: #ffffff;
+  border-color: var(--primary-grey);
   cursor: pointer;
   transition: border-color 0.2s ease, background-color 0.2s ease;
 }
 
-.option:hover {
-  border-color: var(--primary);
-  background: #f7fbff;
+.option:hover, .option.selected {
+  background: var(--primary-dark);
+  color: var(--bg)
 }
 
-.option.selected {
-  border-color: var(--primary);
-  background: #eef5fc;
-}
 
 .option-input {
   position: absolute;
@@ -143,7 +172,7 @@ body {
   height: 18px;
   border: 2px solid var(--primary-dark);
   border-radius: 0;
-  background: #ffffff;
+  background: var(--surface);
   position: relative;
 }
 
@@ -151,7 +180,7 @@ body {
   content: "";
   position: absolute;
   inset: 3px;
-  background: var(--primary);
+  background: var(--primary-dark);;
 }
 
 .option-text {
@@ -177,7 +206,7 @@ body {
   transition: 0.2s ease;
 }
 
-.primary-button:hover {
+.primary-button:not(:disabled):hover {
   background: var(--surface);
   color: var(--primary-dark);
   border: var(--primary-dark);
@@ -188,6 +217,8 @@ body {
 .primary-button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
+  background-color: var(--disable-bg);
+  color: var(--text);
 }
 
 .feedback {
@@ -236,8 +267,8 @@ body {
 
 .top-bar {
   width: 100%;
-  height: 32px;
-  background: #000000;
+  height: 64px;
+  background: var(--primary-dark);
 }
 
 @media (max-width: 640px) {
@@ -256,3 +287,4 @@ body {
     padding: 10px;
   }
 }
+
