@@ -21,7 +21,6 @@
   box-sizing: border-box;
 }
 
-
 body{
   margin: 0;
   font-family: "Roboto", sans-serif;
@@ -187,10 +186,8 @@ body{
 }
 
 .primary-button {
-  border: var(--surface);
-  border-style: solid;
+  border: 2px solid var(--primary-dark);
   border-radius: 0;
-  
   background: var(--primary-dark);
   color: var(--bg);
   padding: 12px 18px;
@@ -282,3 +279,151 @@ body{
   }
 }
 
+@media (max-width: 768px) {
+  .hero {
+    padding: 24px 0 20px;
+  }
+
+  .hero::before {
+    background-size: 72px;
+  }
+
+  .hero__layout {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .hero__brand {
+    width: fit-content;
+    min-height: auto;
+    padding: 10px 12px;
+  }
+
+  .hero__logo {
+    width: 140px;
+  }
+
+  .header {
+    width: 100%;
+    padding: 14px 14px;
+  }
+
+  .header h1 {
+    font-size: 1.7rem;
+    line-height: 1.15;
+  }
+
+  .eyebrow {
+    font-size: 0.9rem;
+    margin-bottom: 6px;
+  }
+
+  .progress,
+  .score,
+  .message {
+    font-size: 1rem;
+  }
+
+  .card,
+  .results-section {
+    padding: 18px;
+  }
+
+  .question {
+    font-size: 1.25rem;
+    margin-bottom: 16px;
+  }
+
+  .option {
+    padding: 14px;
+    gap: 10px;
+  }
+
+  .option-text {
+    font-size: 0.98rem;
+  }
+
+  .primary-button {
+    width: 100%;
+    padding: 14px 16px;
+  }
+
+  .top-bar {
+    height: 48px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 12px;
+  }
+
+  .hero {
+    padding: 20px 0 16px;
+  }
+
+  .hero::before {
+    background-size: 64px;
+  }
+
+  .hero__brand {
+    padding: 8px 10px;
+  }
+
+  .hero__logo {
+    width: 120px;
+  }
+
+  .header {
+    padding: 12px;
+  }
+
+  .header h1 {
+    font-size: 1.45rem;
+  }
+
+  .eyebrow {
+    font-size: 0.82rem;
+    letter-spacing: 0.06em;
+  }
+
+  .progress,
+  .score,
+  .message {
+    font-size: 0.95rem;
+  }
+
+  .card,
+  .results-section {
+    padding: 14px;
+  }
+
+  .question {
+    font-size: 1.1rem;
+  }
+
+  .option {
+    grid-template-columns: 16px 1fr;
+    padding: 12px;
+  }
+
+  .option-box {
+    width: 16px;
+    height: 16px;
+  }
+
+  .option-text {
+    font-size: 0.95rem;
+    line-height: 1.35;
+  }
+
+  .results-table th,
+  .results-table td {
+    font-size: 0.9rem;
+    padding: 8px;
+  }
+
+  .top-bar {
+    height: 40px;
+  }
+}
